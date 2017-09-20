@@ -29,3 +29,5 @@ Parks_visited_map <- visited %>%
 Parks_visited_map
 ```
 
+The `GitHub` repository, which contains the raw data and code necessary to reproduce this map, are located [here](https://github.com/butterflyology/National_Parks).
+
