@@ -1,0 +1,31 @@
+---
+title: "National Parks I have visited"
+author: "Chris Hamm"
+date: "`r Sys.Date()`"
+output: html_document
+
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.align = "center")
+```
+
+### Below is a map of the beautiful National Parks I have visited.
+
+```{r prelims, echo = FALSE, message = FALSE}
+library("leaflet")
+library("tidyverse")
+```
+
+
+```{r da_map, echo = FALSE, message = FALSE}
+visited <- read_csv("data/NP_visited.csv", col_names = TRUE)
+
+Parks_visited_map <- visited %>% 
+  leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(popup = visited$popup)
+Parks_visited_map
+```
+
