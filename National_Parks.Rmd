@@ -1,5 +1,5 @@
 ---
-title: "National Parks I have visited"
+title: "National Park Service Units I have visited"
 author: "Chris Hamm"
 date: "`r Sys.Date()`"
 output: html_document
@@ -11,7 +11,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE, fig.align = "center")
 ```
 
-### Below is a map of the beautiful National Parks I have visited.
+This map contains most of the National Park Service units that I have visited. I have omitted most of the national trails. The map is interactive. Click one the colored circles to zoom in and hover your cursor over a pin to see the name of the site. I've colored coded the sites to reflect their classification.
 
 ```{r prelims, echo = FALSE, message = FALSE}
 library("leaflet")
@@ -20,13 +20,47 @@ library("tidyverse")
 
 
 ```{r da_map, echo = FALSE, message = FALSE}
-visited <- read_csv("data/NP_visited.csv", col_names = TRUE)
+visited <- read_csv("data/NP_visited.csv", col_names = TRUE, 
+                    trim_ws= TRUE, 
+                    col_types = list(
+                      popup = col_character(), 
+                      lat = col_double(), 
+                      lng = col_double(), 
+                      type = col_factor(levels = c("np", "nhp", "nb", "nm", "nhs", "nmp", "nmem", "nhres", "mem", "park", "nbp", "nr", "nra", "ns", "mempkwy", "nha"))))
 
-Parks_visited_map <- visited %>% 
-  leaflet() %>% 
+
+getColor <- function(visited){
+  sapply(visited$type, function(type){
+  if(type == "np"){
+    "green"
+  }else if(type == "nhs" | type == "nhp" | type == "nhres" | type == "nha"){
+    "orange"
+  }else if(type == "nbp" | type == "nb" | type == "nmp"){
+      "red"
+    }else if(type == "nm" | type == "mem" | type == "nmem"){
+      "blue"
+    }else if(type == "mempkwy" | type == "park"){
+      "purple"
+    }else if(type == "nra" | type == "nr" | type == "ns"){
+      "purple"
+    }else{
+    "yellow"
+  } })
+}
+
+icons <- awesomeIcons(
+  icon = 'ios-close',
+  iconColor = 'black',
+  library = 'ion',
+  markerColor = getColor(visited)
+)
+
+coloring <- data.frame(type = c("National Park", "Historic site", "Battlefield", "Memorial", "Recreation"), color = c("#6E8B3D", "#FF8C00", "#CD2626", "#009ACD", "#B23AEE"))
+
+leaflet(visited) %>% 
   addTiles() %>% 
-  addMarkers(popup = visited$popup)
-Parks_visited_map
+  addAwesomeMarkers(~lng, ~lat, popup = ~popup, label = ~popup, icon = icons, clusterOptions = markerClusterOptions()) %>% 
+  addLegend("bottomright", colors = ~coloring$color, labels = ~coloring$type, opacity = 1)
 ```
 
 The `GitHub` repository, which contains the raw data and code necessary to reproduce this map, are located [here](https://github.com/butterflyology/National_Parks).
