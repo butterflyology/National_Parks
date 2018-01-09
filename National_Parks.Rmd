@@ -55,12 +55,12 @@ icons <- awesomeIcons(
   markerColor = getColor(visited)
 )
 
-coloring <- data.frame(type = c("National Park", "Historic site", "Battlefield", "Memorial", "Recreation"), color = c("#6E8B3D", "#FF8C00", "#CD2626", "#009ACD", "#B23AEE"))
+coloring <- data.frame(type = c("National Park", "Historic", "Battlefield", "Memorial", "Recreation"), color = c("#6E8B3D", "#FF8C00", "#CD2626", "#009ACD", "#B23AEE"))
 
 leaflet(visited) %>% 
   addTiles() %>% 
   addAwesomeMarkers(~lng, ~lat, popup = ~popup, label = ~popup, icon = icons, clusterOptions = markerClusterOptions()) %>% 
-  addLegend("bottomright", colors = ~coloring$color, labels = ~coloring$type, opacity = 1)
+  addLegend("bottomright", colors = ~coloring$color, labels = ~coloring$type, opacity = 1, title = "Park Service unit type")
 ```
 
 The `GitHub` repository, which contains the raw data and code necessary to reproduce this map, are located [here](https://github.com/butterflyology/National_Parks).
