@@ -12,3 +12,4 @@ Important files:
 Commit history:
 
 * 2017-09-20 - Initial commit
+* 2018-01-09 - Added color coding of unit by type, and also added clustering layer.
