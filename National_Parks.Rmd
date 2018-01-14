@@ -63,5 +63,5 @@ leaflet(visited) %>%
   addLegend("bottomright", colors = ~coloring$color, labels = ~coloring$type, opacity = 1, title = "Park Service unit type")
 ```
 
-The `GitHub` repository, which contains the raw data and code necessary to reproduce this map, are located [here](https://github.com/butterflyology/National_Parks).
+The `GitHub` repository, which contains the raw data and code necessary to reproduce this map, is located [here](https://github.com/butterflyology/National_Parks).
 
