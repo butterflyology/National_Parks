@@ -14,3 +14,4 @@ Commit history:
 1) 2017-09-20 - Initial commit.
 1) 2018-01-09 - Added color coding of unit by type, and also added clustering layer.
 1) 2018-01-13 - Added Saguaro NP.
+1) 2018-01-21 - Retcon, forgot about Brown v. Board of Education NHS.
