@@ -11,15 +11,13 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE, fig.align = "center")
 ```
 
-This map contains most of the National Park Service units that I have visited. I have omitted most of the national trails. The map is interactive. Click one the colored circles to zoom in and hover your cursor over a pin to see the name of the site. I've colored coded the sites to reflect their classification.
-
 ```{r prelims, echo = FALSE, message = FALSE}
 library("leaflet")
 library("tidyverse")
 ```
 
 
-```{r da_map, echo = FALSE, message = FALSE}
+```{r load, echo = FALSE, message = FALSE}
 visited <- read_csv("data/NP_visited.csv", col_names = TRUE, 
                     trim_ws= TRUE, 
                     col_types = list(
@@ -27,8 +25,12 @@ visited <- read_csv("data/NP_visited.csv", col_names = TRUE,
                       lat = col_double(), 
                       lng = col_double(), 
                       type = col_factor(levels = c("np", "nhp", "nb", "nm", "nhs", "nmp", "nmem", "nhres", "mem", "park", "nbp", "nr", "nra", "ns", "mempkwy", "nha"))))
+```
+
+This map contains most of the National Park Service units that I have visited. I have omitted most of the national trails. The map is interactive. Click one the colored circles to zoom in and hover your cursor over a pin to see the name of the site. I've colored coded the sites to reflect their classification. To date, I have visited a total of `r nrow(visited)` National Park Units.
 
 
+```{r da_map, echo = FALSE, message = FALSE}
 getColor <- function(visited){
   sapply(visited$type, function(type){
   if(type == "np"){
