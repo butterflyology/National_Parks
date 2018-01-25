@@ -24,7 +24,7 @@ visited <- read_csv("data/NP_visited.csv", col_names = TRUE,
                       popup = col_character(), 
                       lat = col_double(), 
                       lng = col_double(), 
-                      type = col_factor(levels = c("np", "nhp", "nb", "nm", "nhs", "nmp", "nmem", "nhres", "mem", "park", "nbp", "nr", "nra", "ns", "mempkwy", "nha", "nl"))))
+                      type = col_factor(levels = c("np", "nhp", "nb", "nm", "nhs", "nmp", "nmem", "nhres", "mem", "park", "nbp", "nr", "nra", "ns", "mempkwy", "nha", "nl", "nr", "pkwy"))))
 ```
 
 This map contains most of the National Park Service units that I have visited. I have omitted most of the national trails. The map is interactive. Click one the colored circles to zoom in and hover your cursor over a pin to see the name of the site. I've colored coded the sites to reflect their classification. To date, I have visited a total of `r nrow(visited)` National Park Units.
@@ -43,7 +43,7 @@ getColor <- function(visited){
       "blue"
     }else if(type == "mempkwy" | type == "park"){
       "purple"
-    }else if(type == "nra" | type == "nr" | type == "ns" | type == "nl"){
+    }else if(type == "nra" | type == "nr" | type == "ns" | type == "nl" | type == "pkwy"){
       "purple"
     }else{
     "pink"
