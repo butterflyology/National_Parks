@@ -57,7 +57,7 @@ icons <- awesomeIcons(
   markerColor = getColor(visited)
 )
 
-coloring <- data.frame(type = c("National Park", "Historic", "Battlefield", "Memorial", "Recreation"), color = c("#6E8B3D", "#FF8C00", "#CD2626", "#009ACD", "#B23AEE"))
+coloring <- data.frame(type = c("National Park", "Historic", "Battlefield", "Memorial/Monument", "Recreation"), color = c("#6E8B3D", "#FF8C00", "#CD2626", "#009ACD", "#B23AEE"))
 
 leaflet(visited) %>% 
   addTiles() %>% 
