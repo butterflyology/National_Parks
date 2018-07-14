@@ -20,3 +20,4 @@ Commit history:
 1. 2018-03-12: Added Canaveral Nations Seashore to list and map.
 1. 2018-06-11: Added Acadia NP and Saint Croix Island NHS.
 1. 2018-07-10: Started adding units from Hawaii trip.
+1. 2018-07-13: Added more units from Hawaii trip.
