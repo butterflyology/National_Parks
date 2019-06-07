@@ -24,10 +24,10 @@ visited <- read_csv("data/NP_visited.csv", col_names = TRUE,
                       popup = col_character(), 
                       lat = col_double(), 
                       lng = col_double(), 
-                      type = col_factor(levels = c("np", "nhp", "nb", "nm", "nhs", "nmp", "nmem", "nhres", "mem", "park", "nbp", "nr", "nra", "ns", "mempkwy", "nha", "nl", "nr", "pkwy", "nht"))))
+                      type = col_factor(levels = c("np", "nhp", "nb", "nm", "nhs", "nmp", "nmem", "nhres", "mem", "park", "nbp", "nr", "nra", "ns", "mempkwy", "nha", "nl", "nr", "pkwy", "nht", "nst", "nsr"))))
 ```
 
-This map contains most of the National Park Service units that I have visited. I have omitted most of the national trails. The map is interactive. Click one the colored circles to zoom in and hover your cursor over a pin to see the name of the site. I've colored coded the sites to reflect their classification. To date, I have visited a total of `r nrow(visited)` National Park Units.
+This map contains most of the National Park Service units that I have visited. I have omitted most of the national trails. The map is interactive. Click one the colored circles to zoom in and hover your cursor over a pin to see the name of the site. I've colored coded the sites to reflect their classification. To date, I have visited a total of `r nrow(visited)` National Park Sites.
 
 
 ```{r da_map, echo = FALSE, message = FALSE}
@@ -35,7 +35,7 @@ getColor <- function(visited){
   sapply(visited$type, function(type){
   if(type == "np"){
     "green"
-  }else if(type == "nhs" | type == "nhp" | type == "nhres" | type == "nha" | type == "nht"){
+  }else if(type == "nhs" | type == "nhp" | type == "nhres" | type == "nha" | type == "nht" | type == "nst"){
     "orange"
   }else if(type == "nbp" | type == "nb" | type == "nmp"){
       "red"
@@ -43,7 +43,7 @@ getColor <- function(visited){
       "blue"
     }else if(type == "mempkwy" | type == "park"){
       "purple"
-    }else if(type == "nra" | type == "nr" | type == "ns" | type == "nl" | type == "pkwy"){
+    }else if(type == "nra" | type == "nr" | type == "ns" | type == "nl" | type == "pkwy" | type == "nsr"){
       "purple"
     }else{
     "pink"

@@ -24,4 +24,5 @@ Commit history:
 1. 2018-07-18: Completed upload from Hawaii trip.
 1. 2018-11-21: Added trip to John Day Fossil Beds NM.
 1. 2019-01-13: Added El Camino Real de los Tejas.
-1. 2019-02-27: Added Ft. Vancouver. 
+1. 2019-02-27: Added Ft. Vancouver.
+1. 2019-06-07: Added a bunch of sites I had previously omitted. 
