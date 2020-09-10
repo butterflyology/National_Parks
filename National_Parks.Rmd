@@ -22,6 +22,7 @@ visited <- read_csv("data/NP_visited.csv", col_names = TRUE,
                     trim_ws= TRUE, 
                     col_types = list(
                       popup = col_character(), 
+                      date = col_date("%Y-%m-%d"),
                       lat = col_double(), 
                       lng = col_double(), 
                       type = col_factor(levels = c("np", "nhp", "nb", "nm", "nhs", "nmp", "nmem", "nhres", "mem", "park", "nbp", "nr", "nra", "ns", "mempkwy", "nha", "nl", "nr", "pkwy", "nht", "nst", "nsr"))))
