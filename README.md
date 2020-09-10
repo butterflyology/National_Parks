@@ -25,5 +25,6 @@ Commit history:
 1. 2018-11-21: Added trip to John Day Fossil Beds NM.
 1. 2019-01-13: Added El Camino Real de los Tejas.
 1. 2019-02-27: Added Ft. Vancouver.
+1. 2019-04-13: Added Rivers of Steel
 1. 2019-06-07: Added a bunch of sites I had previously omitted.
-1. 2020-09-10: Added dates and updated NYC trip from January (the before times). A few of the dates are inaccurate because I can't make out the stamp dates. 
+1. 2020-09-10: Added dates and updated NYC trip from January (the before times). A few of the dates are inaccurate because I can't make out the stamp dates.
